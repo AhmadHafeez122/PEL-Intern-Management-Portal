@@ -23,11 +23,15 @@ use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Student\DashboardController as StudentDashboardController;
 
 // =========================================================================
-// PUBLIC PUBLIC
+// PUBLIC ROUTES
 // =========================================================================
 Route::get('/', function () {
     return view('welcome');
 });
+
+// AI Chatbot API
+use App\Http\Controllers\ChatbotController;
+Route::post('/chatbot', [ChatbotController::class, 'chat'])->name('chatbot.chat');
 
 // =========================================================================
 // SMART DASHBOARD REDIRECT (Handles login routing based on role)
